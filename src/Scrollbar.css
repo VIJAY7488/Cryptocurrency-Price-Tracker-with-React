@@ -5,12 +5,12 @@
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: red ;
+    background: blue ;
   }
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: red;
+    background: pink;
   }
   
   /* Handle on hover */
