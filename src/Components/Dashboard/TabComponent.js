@@ -5,6 +5,7 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import { createTheme, ThemeProvider } from '@mui/material';
 import GridPage from './Grid';
+import List from './List';
 
 export default function TabComponent({coin}) {
   const [value, setValue] = useState('grid');
@@ -46,7 +47,11 @@ export default function TabComponent({coin}) {
           </div>
         </TabPanel>
         <TabPanel value="list">
-          mapping for list
+          <table className='w-full'>
+            {coin.map((coin, i) =>(
+              <List coin={coin}/>
+            ))}
+          </table>
         </TabPanel>
       </TabContext>
     </ThemeProvider>

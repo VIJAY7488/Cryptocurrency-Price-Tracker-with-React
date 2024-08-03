@@ -12,7 +12,6 @@ function DashboardPage() {
   useEffect(() =>{
     const fetchData = async () => {
       const result = await axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd');
-      console.log(result.data);
       setCoin(result.data);
     }
     fetchData();

@@ -6,7 +6,10 @@ function GridPage({coin}) {
   return (
     <>
        <div 
-       className='w-[290px] h-[300px] border border-blue-600 bg-slate-800 rounded-md shadow-md shadow-slate-600'>
+       className={`w-[290px] border-2 border-blue-600 h-[300px] bg-slate-800 rounded-md shadow-md shadow-slate-600 
+              ${coin.price_change_24h.toFixed(2) < 0 || coin.market_cap_change_percentage_24h.toFixed(2) < 0
+                ? ' hover:border-red-600'
+                : ' hover:border-green-600'}`}>
         
         <div className='flex items-center'>
         <img 
@@ -26,28 +29,29 @@ function GridPage({coin}) {
          
          <div 
           className={`border-2 flex justify-center items-center gap-3 
-                    ml-4 w-40 rounded-lg ${
+                    ml-4 w-40 rounded-lg hover:text-white ${
                       coin.price_change_24h.toFixed(2) < 0 || coin.market_cap_change_percentage_24h.toFixed(2) < 0
-                        ? 'border-red-600'
-                        : 'border-green-600'
+                        ? 'border-red-600 text-red-600 hover:bg-red-600'
+                        : 'border-green-600 text-green-600 hover:bg-green-600'
+                        
                     }`}
           >
            
            {coin.price_change_24h.toFixed(2) < 0 || coin.market_cap_change_percentage_24h.toFixed(2) < 0 ? (
             <>
-             <span className='text-red-600 text-md'>$ {coin.price_change_24h.toFixed(2)}</span>
-             <span className='space-x-3 text-red-600'>
+             <span className='text-md'>$ {coin.price_change_24h.toFixed(2)}</span>
+             <span className='space-x-3'>
                {coin.market_cap_change_percentage_24h.toFixed(2)}%
              </span>
             </>
           ) : (
             <>
-             <span className='text-green-600'>$ {coin.price_change_24h.toFixed(2)}</span>
-             <span className='space-x-3 text-green-600'>
+             <span>$ {coin.price_change_24h.toFixed(2)}</span>
+             <span className='space-x-3'>
                {coin.market_cap_change_percentage_24h.toFixed(2)}%
              </span>
             </>
-         )}
+          )}
          </div>
         
         <div 
