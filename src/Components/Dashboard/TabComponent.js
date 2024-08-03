@@ -39,7 +39,7 @@ export default function TabComponent({coin}) {
           </TabList>
         
         <TabPanel value="grid">
-          <div className='flex gap-6 flex-wrap justify-center'>
+          <div className='flex gap-10 flex-wrap justify-center'>
             {coin.map((coin, i) =>(
               <GridPage coin={coin} key={i}/>
             ))}
