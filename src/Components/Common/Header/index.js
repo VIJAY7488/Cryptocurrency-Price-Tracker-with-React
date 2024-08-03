@@ -8,7 +8,7 @@ function Header() {
     {
       id: 1,
       label: "Home",
-      link: "/home"
+      link: "/"
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ function Header() {
     },
   ]
   return (
-    <div className='flex justify-between items-center py-4 px-3 
+    <div className='flex justify-between items-center py-4 px-3 bg-gray-900
      sticky top-0 left-0 z-50'>
       <div className='text-3xl'>
         <h1 className='text-gray-200'>

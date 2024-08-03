@@ -3,13 +3,23 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+import { createTheme, ThemeProvider } from '@mui/material';
+import GridPage from './Grid';
 
-export default function TabComponent() {
-  const [value, setValue] = useState('1');
+export default function TabComponent({coin}) {
+  const [value, setValue] = useState('grid');
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const theme = createTheme({
+    palette:{
+      primary:{
+        main: "#2563EB",
+      },
+    },
+  })
 
   const style = {
     color: "white",
@@ -20,7 +30,7 @@ export default function TabComponent() {
   }
 
   return (
-    <div sx={{ width: '100%', typography: 'body1' }}>
+    <ThemeProvider theme={theme}>
       <TabContext value={value}>
         
           <TabList onChange={handleChange} variant="fullWidth">
@@ -28,9 +38,17 @@ export default function TabComponent() {
             <Tab label="List" value="list" sx={style}/>
           </TabList>
         
-        <TabPanel value="grid">Grid</TabPanel>
-        <TabPanel value="list">List</TabPanel>
+        <TabPanel value="grid">
+          <div className='flex gap-6 flex-wrap justify-center'>
+            {coin.map((coin, i) =>(
+              <GridPage coin={coin} key={i}/>
+            ))}
+          </div>
+        </TabPanel>
+        <TabPanel value="list">
+          mapping for list
+        </TabPanel>
       </TabContext>
-    </div>
+    </ThemeProvider>
   );
 }

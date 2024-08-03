@@ -9,7 +9,7 @@ export default function AnchorTemporaryDrawer() {
 
   const menuList = [
     {
-      id: 1,
+      id: 12,
       label: "Home",
       link: "/home"
     },
@@ -35,7 +35,9 @@ export default function AnchorTemporaryDrawer() {
             <div className='bg-slate-900 w-52 h-full p-6 space-y-4'>
                 {
                     menuList.map((navItem) =>(
-                        <li className='list-none text-gray-300'>
+                        <li 
+                        key={navItem.id}
+                        className='list-none text-gray-300'>
                           {navItem.label}
                         </li>
                     ))

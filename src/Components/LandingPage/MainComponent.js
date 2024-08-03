@@ -60,7 +60,9 @@ function MainComponent() {
         <img 
           className='absolute z-10 right-0 top-1/2 transform -translate-y-1/2 w-[45%] h-auto'
           src={iphone} 
-          alt="iPhone" />
+          alt="iPhone" 
+          draggable="false"
+          />
           
         <img 
           className='absolute right-2 top-1/2 transform -translate-y-1/2 w-[40%] h-auto'
