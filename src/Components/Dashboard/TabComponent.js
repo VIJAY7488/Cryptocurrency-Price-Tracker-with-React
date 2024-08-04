@@ -47,12 +47,19 @@ export default function TabComponent({coin}) {
           </div>
         </TabPanel>
         <TabPanel value="list">
-          <table className='w-full'>
-            {coin.map((coin, i) =>(
-              <List coin={coin}/>
-            ))}
-          </table>
-        </TabPanel>
+  <table className="w-full border-collapse ">
+    <tbody>
+      {coin.map((coin, i) => (
+        <tr key={i}>
+          <td>
+            <List coin={coin}/>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</TabPanel>
+
       </TabContext>
     </ThemeProvider>
   );
